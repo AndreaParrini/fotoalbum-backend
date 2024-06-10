@@ -17,7 +17,7 @@ class FotoContoller extends Controller
     public function index()
     {
         //dd(Foto::all());
-        return view('admin.fotos.index', ['fotos' => Foto::all()]);
+        return view('admin.fotos.index', ['fotos' => Foto::orderByDesc('in_evidenza')->orderByDesc('id')->paginate(10)]);
     }
 
     /**
