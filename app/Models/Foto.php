@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Foto extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['title', 'description', 'slug', 'image_path'];
 }
