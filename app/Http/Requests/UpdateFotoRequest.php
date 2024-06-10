@@ -11,7 +11,7 @@ class UpdateFotoRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,9 @@ class UpdateFotoRequest extends FormRequest
     {
         return [
             //
+            'title' => 'required|max:50',
+            'description' => 'nullable|max:500',
+            'image_path' => 'image'
         ];
     }
 }
