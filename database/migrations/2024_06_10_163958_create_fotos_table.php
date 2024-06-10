@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('fotos', function (Blueprint $table) {
             $table->id();
             $table->string('title', 50);
+            $table->string('slug', 100);
             $table->string('description')->nullable();
             $table->string('image_path');
-            $table->boolean('in_evidenza')->default(false);
+            $table->boolean('in_evidenza')->default(0);
             $table->timestamps();
         });
     }
