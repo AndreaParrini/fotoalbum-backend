@@ -1,19 +1,21 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreFotoRequest;
 use App\Http\Requests\UpdateFotoRequest;
 use App\Models\Foto;
 
-class FotoController extends Controller
+class FotoContoller extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        //dd(Foto::all());
+        return view('admin.fotos.index', ['fotos' => Foto::all()]);
     }
 
     /**
