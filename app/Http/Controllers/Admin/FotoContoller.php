@@ -110,5 +110,11 @@ class FotoContoller extends Controller
     public function destroy(Foto $foto)
     {
         //
+        if ($foto->image_path) {
+            Storage::delete($foto->image_path);
+        }
+        $foto->delete();
+
+        return to_route('admin.fotos.index')->with('message', 'Foto  ' . $foto->id . '  cancelled successfully');
     }
 }
