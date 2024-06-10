@@ -40,12 +40,17 @@ class FotoContoller extends Controller
         $val_data = $request->validated();
         $val_data['slug'] = Str::slug($request->title, '-');
 
+        if ($request->has('in_evidenza')) {
+            $val_data['in_evidenza'] = 1;
+        }
+
         if ($request->has('image_path')) {
             $image_path = Storage::put('uploads', $request->image_path);
             //dd($image_path);
             $val_data['image_path'] = $image_path;
         }
 
+        //dd($val_data);
         Foto::create($val_data);
 
         return to_route('admin.fotos.index')->with('message', 'Foto uploaded successfully');
@@ -57,6 +62,7 @@ class FotoContoller extends Controller
     public function show(Foto $foto)
     {
         //
+        return view('admin.fotos.show', compact('foto'));
     }
 
     /**

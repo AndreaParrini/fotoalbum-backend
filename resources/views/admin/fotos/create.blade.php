@@ -13,7 +13,7 @@
             <div class="mb-3 input-group">
                 <span class="input-group-text" id="inputGroup-sizing-default">Title</span>
                 <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title"
-                    placeholder="Lorem ipsum...">
+                    placeholder="Lorem ipsum..." value="{{ old('title') }}">
 
             </div>
             @error('title')
@@ -21,7 +21,7 @@
             @enderror
             <div class="mb-3 input-group">
                 <span class="input-group-text">Descrption</span>
-                <textarea class="form-control @error('description') is-invalid @enderror" aria-label="With textarea" name="description"></textarea>
+                <textarea class="form-control @error('description') is-invalid @enderror" aria-label="With textarea" name="description">{{ old('description') }}</textarea>
             </div>
             @error('description')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -35,6 +35,12 @@
             @error('image_path')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
+
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="in_evidenza" name="in_evidenza"
+                    {{ old('in_evidenza') ? 'checked' : '' }}>
+                <label class="form-check-label" for="in_evidenza">In Evidenza</label>
+            </div>
 
             <button type="submit" class="btn btn-primary">
                 Create
