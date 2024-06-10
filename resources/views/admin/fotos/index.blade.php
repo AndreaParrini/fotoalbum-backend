@@ -1,4 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.admin')
+
 
 @section('content')
     <div class="bg-warning py-5">
@@ -60,7 +61,7 @@
                                 <div class="modal fade" id="modalId--{{ $foto->id }}" tabindex="-1"
                                     data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
                                     aria-labelledby="modalTitleId--{{ $foto->id }}" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
+                                    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-md"
                                         role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -73,6 +74,17 @@
                                             <div class="modal-body text-wrap">
                                                 You are about to destroy this foto :
                                                 <strong>{{ $foto->title }}</strong> ?
+                                                <div>
+
+                                                    @if (Str::startsWith($foto->image_path, 'https://'))
+                                                        <img class="w-100" src="{{ $foto->image_path }}"
+                                                            alt="Cover Image">
+                                                    @else
+                                                        <img class="w-100"
+                                                            src="{{ asset('storage/' . $foto->image_path) }}"
+                                                            alt="Cover Image">
+                                                    @endif
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
