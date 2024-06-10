@@ -1,7 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="bg-warning py-5">
+        <div class="container">
+            <h3>All foto</h3>
+        </div>
+    </div>
     <div class="container">
+        @include('partials.message')
+        @include('partials.error')
+
         <div class="row row-cols-xs-1 row-cols-sm-1 row-cols-lg-3 row-cols-xxl-4 ">
             @forelse ($fotos as $foto)
                 <div class="col mb-3">
