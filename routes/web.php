@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\FotoContoller;
+use App\Http\Controllers\Guest\FotoController as GuestFotoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,8 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::resource('/fotos', GuestFotoController::class)->only(['index', 'show']);
 
 Route::middleware(['auth', 'verified'])
     ->name('admin.')
