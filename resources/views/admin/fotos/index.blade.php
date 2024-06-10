@@ -16,7 +16,13 @@
                 </div>
 
             @empty
+                <div class="col-12">
+                    Non ci sono foto
+                </div>
             @endforelse
         </div>
+
+        <a class="btn btn-primary btn-lg rounded-pill position-fixed" style="right: 5rem; bottom: 5rem"
+            href="{{ route('admin.fotos.create') }}" role="button"> <i class="fa fa-plus" aria-hidden="true"></i> ADD </a>
     </div>
 @endsection
