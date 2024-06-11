@@ -3,8 +3,10 @@
 
 @section('content')
     <div class="bg-warning py-5">
-        <div class="container">
-            <h3>Add a new Foto</h3>
+        <div class="container d-flex justify-content-between">
+            <h3>Edit: {{ $foto->title }}</h3>
+            <a href="{{ route('admin.fotos.index') }}" class="text-decoration-none text-dark fs-5"><i
+                    class="fa fa-arrow-circle-left me-1" aria-hidden="true"></i>Back</a>
         </div>
     </div>
 
@@ -38,15 +40,16 @@
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
 
-            <div class="d-flex gap-4 mb-4">
+            <div class="d-flex gap-4 mb-4 align-items-center">
                 <div>
                     @if (Str::startsWith($foto->image_path, 'https://'))
-                        <img width="140" src="{{ $foto->image_path }}" alt="{{ $foto->image_path }}">
+                        <img width="300" src="{{ $foto->image_path }}" alt="{{ $foto->image_path }}">
                     @else
-                        <img width="140" src="{{ asset('storage/' . $foto->image_path) }}" alt="{{ $foto->image_path }}">
+                        <img width="300" src="{{ asset('storage/' . $foto->image_path) }}"
+                            alt="{{ $foto->image_path }}">
                     @endif
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 w-50 text-center">
                     <label for="image_path" class="form-label">Modify Image</label>
                     <input type="file" class="form-control" name="image_path" id="image_path" placeholder="Image PAth"
                         aria-describedby="fileHelpId" />

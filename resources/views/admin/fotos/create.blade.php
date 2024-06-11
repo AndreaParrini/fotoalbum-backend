@@ -1,10 +1,10 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="bg-warning py-5">
-        <div class="container">
-            <h3>Add a new Foto</h3>
-        </div>
+    <div class="container d-flex justify-content-between">
+        <h3>Add a new Foto</h3>
+        <a href="{{ route('admin.fotos.index') }}" class="text-decoration-none text-dark fs-5"><i
+                class="fa fa-arrow-circle-left me-1" aria-hidden="true"></i>Back</a>
     </div>
 
     <div class="container py-5">
