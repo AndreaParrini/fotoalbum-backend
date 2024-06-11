@@ -15,7 +15,7 @@ return new class extends Migration
             //
             $table->unsignedBigInteger('category_id')->nullable();
 
-            $table->foreign('user_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 
