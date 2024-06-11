@@ -71,7 +71,7 @@
                                         </form>
                                     </td>
                                     <td class="text-center">{{ $category->slug }}</td>
-                                    <td class="text-center">item</td>
+                                    <td class="text-center">{{ $category->fotos->count() }}</td>
                                     <td class="text-center">
                                         <a class="btn btn-sm btn-primary"
                                             href="{{ route('admin.categories.show', $category) }}"><i
