@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\FotoContoller;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Guest\FotoController as GuestFotoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,8 @@ Route::middleware(['auth', 'verified'])
 
         //Foto route here
         Route::resource('/fotos', FotoContoller::class);
+        //Category route here
+        Route::resource('/categories', CategoryController::class);
     });
 
 Route::middleware('auth')->group(function () {
