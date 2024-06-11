@@ -27,7 +27,7 @@
                                 <p class="card-text">{{ $foto->description }}</p>
                             </div>
                             <div class="position-absolute top-0 end-0 p-2 bg-dark bg-opacity-50">
-                                <i class="fa fa-star fa-2xl {{ $foto->in_evidenza ? 'text-warning' : 'text-light' }}"
+                                <i class="fa fa-star fa-2xl {{ $foto->in_evidenza ? 'text-warning' : 'text-dark' }}"
                                     aria-hidden="true" title="In Evidenza"></i>
                             </div>
 

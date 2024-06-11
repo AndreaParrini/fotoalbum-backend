@@ -39,18 +39,18 @@
                                 {{ $categories->links('pagination::bootstrap-5') }}
                             </caption>
                             <tr>
-                                <th class="text-center">ID</th>
-                                <th class="text-center">Name</th>
-                                <th class="text-center">Slug</th>
-                                <th class="text-center">Total Image</th>
-                                <th class="text-center">Actions</th>
+                                <th class="text-center text-nowrap">ID</th>
+                                <th class="text-center text-nowrap">Name</th>
+                                <th class="text-center text-nowrap">Slug</th>
+                                <th class="text-center text-nowrap">Total Image</th>
+                                <th class="text-center text-nowrap"class="text-center text-nowrap">Actions</th>
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
                             @forelse ($categories as $category)
                                 <tr class="table-primary">
-                                    <td class="text-center" scope="row">{{ $category->id }}</td>
-                                    <td class="text-center">
+                                    <td class="text-center text-nowrap" scope="row">{{ $category->id }}</td>
+                                    <td class="text-center text-nowrap">
                                         <form action="{{ route('admin.categories.update', $category) }}" method="post">
                                             @csrf
                                             @method('PATCH')
@@ -71,8 +71,8 @@
                                         </form>
                                     </td>
                                     <td class="text-center">{{ $category->slug }}</td>
-                                    <td class="text-center">{{ $category->fotos->count() }}</td>
-                                    <td class="text-center">
+                                    <td class="text-center text-nowrap">{{ $category->fotos->count() }}</td>
+                                    <td class="text-center text-nowrap">
                                         <a class="btn btn-sm btn-primary"
                                             href="{{ route('admin.categories.show', $category) }}"><i
                                                 class="fa fa-eye me-1" aria-hidden="true"></i>View</a>

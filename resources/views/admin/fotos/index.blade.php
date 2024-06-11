@@ -42,7 +42,7 @@
                                 {{ $foto->slug }}
                             </td>
                             <td>
-                                <i class="fa fa-star fa-2xl {{ $foto->in_evidenza ? 'text-warning' : 'text-light' }}"
+                                <i class="fa fa-star fa-2xl {{ $foto->in_evidenza ? 'text-warning' : 'text-dark' }}"
                                     aria-hidden="true" title="In Evidenza"></i>
                             </td>
                             <td class="text-nowrap">

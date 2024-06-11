@@ -20,7 +20,7 @@
                         <img class="rounded-4" src="{{ asset('storage/' . $foto->image_path) }}" alt="{{ $foto->title }}">
                     @endif
                     <div class="position-absolute py-2 px-4 top-0 end-0">
-                        <i class="fa fa-star fa-2xl {{ $foto->in_evidenza ? 'text-warning' : 'text-light' }}"
+                        <i class="fa fa-star fa-2xl {{ $foto->in_evidenza ? 'text-warning' : 'text-dark' }}"
                             aria-hidden="true" title="In Evidenza"></i>
                     </div>
                 </div>
