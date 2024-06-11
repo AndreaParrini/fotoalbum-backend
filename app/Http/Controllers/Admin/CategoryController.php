@@ -41,6 +41,9 @@ class CategoryController extends Controller
     public function show(Category $category)
     {
         //
+        $allCategoryFotos = $category->fotos()->paginate(6);
+
+        return view('admin.categories.show', compact('allCategoryFotos', 'category'));
     }
 
 
