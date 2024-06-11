@@ -19,14 +19,6 @@ class CategoryController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(StoreCategoryRequest $request)
@@ -49,13 +41,6 @@ class CategoryController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Category $category)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -63,6 +48,14 @@ class CategoryController extends Controller
     public function update(UpdateCategoryRequest $request, Category $category)
     {
         //
+        //dd($request->all());
+        $val_data = $request->validated();
+        $val_data['slug'] = Str::slug($request->name, '-');
+
+        //dd($val_data);
+        $category->update($val_data);
+
+        return to_route('admin.categories.index')->with('message', 'Category with id ' . $category->id . ' updated successfully');
     }
 
     /**

@@ -26,4 +26,13 @@ class StoreCategoryRequest extends FormRequest
             'name' => 'required|min:3|max:50'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'The :attribute is required',
+            'name.min' => 'The :attribute is too short, must be have 5 characters.',
+            'name.max' => 'The :attribute is too long, must be have less of 50 characters.',
+        ];
+    }
 }

@@ -7,6 +7,7 @@
         </div>
     </div>
     <div class="container py-5">
+        @include('partials.message')
         <div class="row row-cols-md-2 row-cols-xs-1">
             <div class="col-4">
                 <form action="{{ route('admin.categories.store') }}" method="post">
@@ -27,9 +28,6 @@
                     <button type="submit" class="btn btn-info mb-3">
                         <i class="fa fa-plus" aria-hidden="true"></i>
                     </button>
-
-                    @include('partials.message')
-
                 </form>
 
             </div>
