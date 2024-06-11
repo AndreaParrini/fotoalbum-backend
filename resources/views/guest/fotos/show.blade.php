@@ -19,13 +19,21 @@
                     @else
                         <img class="rounded-4" src="{{ asset('storage/' . $foto->image_path) }}" alt="{{ $foto->title }}">
                     @endif
-                    <div class="position-absolute py-2 px-4 top-0 end-0">
-                        <i class="fa fa-star fa-2xl {{ $foto->in_evidenza ? 'text-warning' : 'text-dark' }}"
-                            aria-hidden="true" title="In Evidenza"></i>
-                    </div>
+
                 </div>
             </div>
             <div class="col-6 my-5 text-center ">
+                <div class="d-flex align-items-center justify-content-center gap-5">
+
+                    <div class="">
+                        <i class="fa fa-star fa-2xl {{ $foto->in_evidenza ? 'text-warning' : 'text-dark' }}"
+                            aria-hidden="true" title="In Evidenza"></i>
+                    </div>
+                    <div class="fs-5">
+                        <i class="fa fa-folder fa-lg" aria-hidden="true"></i>
+                        {{ $foto->category ? $foto->category->name : 'N/a' }}
+                    </div>
+                </div>
                 <h3 class="text-uppercase my-4">{{ $foto->title }}</h3>
                 <p class="fst-italic">{{ $foto->description }}</p>
             </div>
