@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -14,6 +15,7 @@ class CategoryController extends Controller
     public function index()
     {
         //
+        return view('admin.categories.index', ['categories' => Category::orderByDesc('id')->paginate(5)]);
     }
 
     /**
@@ -29,7 +31,14 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        //
+        //dd($request->all());
+        $val_data = $request->validated();
+        $val_data['slug'] = Str::slug($request->name, '-');
+
+        //dd($val_data);
+        Category::create($val_data);
+
+        return to_route('admin.categories.index')->with('message', 'Category created successfully');
     }
 
     /**
