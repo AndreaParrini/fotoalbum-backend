@@ -23,9 +23,10 @@ class StoreFotoRequest extends FormRequest
     {
         return [
             //
-            'title' => 'required|max:50',
+            'title' => 'required|min:3|max:50',
             'description' => 'nullable|max:500',
-            'image_path' => 'required|image'
+            'image_path' => 'required|image',
+            'category_id' => 'exists:categories,id'
         ];
     }
 }
