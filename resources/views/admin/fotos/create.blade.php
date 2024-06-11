@@ -35,14 +35,14 @@
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
 
-            <div class="d-flex gap-4">
-                <div class="input-group mb-3 w-50">
+            <div class="d-lg-flex gap-4">
+                <div class="input-group mb-3 w-auto">
                     <label class="input-group-text" for="image_path">Upload Image</label>
                     <input type="file" class="form-control @error('image_path') is-invalid @enderror" id="image_path"
                         name="image_path">
                 </div>
 
-                <div class="input-group mb-3 w-50">
+                <div class="input-group mb-3 w-auto">
                     <label class="input-group-text" for="category_id">Category</label>
                     <select class="form-select @error('category_id') is-invalid @enderror" id="category_id"
                         name="category_id" id="category_id">

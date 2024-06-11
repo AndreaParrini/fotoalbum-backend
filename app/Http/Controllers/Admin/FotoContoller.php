@@ -72,7 +72,9 @@ class FotoContoller extends Controller
     public function edit(Foto $foto)
     {
         //
-        return view('admin.fotos.edit', compact('foto'));
+        $categories = Category::all();
+
+        return view('admin.fotos.edit', compact('categories', 'foto'));
     }
 
     /**

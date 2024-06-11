@@ -40,8 +40,14 @@
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
 
-            <div class="d-flex gap-4 mb-4 align-items-center">
-                <div>
+            <div class="d-lg-flex gap-4 mb-4 align-items-center">
+                <div class="mb-3  text-center w-auto">
+                    <label for="image_path" class="form-label">Modify Image</label>
+                    <input type="file" class="form-control" name="image_path" id="image_path" placeholder="Image PAth"
+                        aria-describedby="fileHelpId" />
+                    <div id="coverImageHelper" class="form-text">Uploade a new image</div>
+                </div>
+                <div class="w-auto text-center mb-3">
                     @if (Str::startsWith($foto->image_path, 'https://'))
                         <img width="300" src="{{ $foto->image_path }}" alt="{{ $foto->image_path }}">
                     @else
@@ -49,14 +55,25 @@
                             alt="{{ $foto->image_path }}">
                     @endif
                 </div>
-                <div class="mb-3 w-50 text-center">
-                    <label for="image_path" class="form-label">Modify Image</label>
-                    <input type="file" class="form-control" name="image_path" id="image_path" placeholder="Image PAth"
-                        aria-describedby="fileHelpId" />
-                    <div id="coverImageHelper" class="form-text">Uploade a new image</div>
+                <div class="input-group mb-3 w-auto">
+                    <label class="input-group-text" for="category_id">Category</label>
+                    <select class="form-select @error('category_id') is-invalid @enderror" id="category_id"
+                        name="category_id" id="category_id">
+                        <option selected disabled>Choose a category of Image</option>
+                        @forelse ($categories as $category)
+                            <option value="{{ $category->id }}"
+                                {{ old('category_id', $foto->category_id) == $category->id ? 'selected' : '' }}>
+                                {{ $category->name }}</option>
+                        @empty
+                        @endforelse
+
+                    </select>
                 </div>
             </div>
             @error('image_path')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+            @error('category_id')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
 
