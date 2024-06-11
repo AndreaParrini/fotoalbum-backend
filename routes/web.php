@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\FotoContoller;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Guest\FotoController as GuestFotoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
