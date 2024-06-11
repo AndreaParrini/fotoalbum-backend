@@ -69,5 +69,8 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         //
+        $category->delete();
+
+        return to_route('admin.categories.index')->with('message', 'Technology with ID ' . $category->id . '  cancelled successfully');
     }
 }
