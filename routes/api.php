@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Api\FotoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\Foto;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('fotos', [FotoController::class, 'index']);
+
+Route::get('fotos/{foto}', [FotoController::class, 'show']);
