@@ -18,9 +18,20 @@ class FotoController extends Controller
                 'results' => Foto::with('category')->orderByDesc('in_evidenza')->orderByDesc('id')->where('in_evidenza', 1)->limit(4)->get()
             ]);
         }
+
+        $queryBuilder = Foto::with('category')->orderByDesc('in_evidenza')->orderByDesc('id');
+
+        if ($request->has('in_evidenza')) {
+            $queryBuilder = $queryBuilder->where('in_evidenza', 1);
+        }
+
+        if ($request->has('category')) {
+            $queryBuilder = $queryBuilder->where('category_id', $request->category);
+        }
+
         return response()->json([
             'success' => true,
-            'results' => Foto::with('category')->orderByDesc('in_evidenza')->orderByDesc('id')->get()
+            'results' => $queryBuilder->get()
         ]);
     }
 
