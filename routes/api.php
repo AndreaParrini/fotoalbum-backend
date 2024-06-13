@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\FotoController;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Foto;
@@ -23,3 +24,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('fotos', [FotoController::class, 'index']);
 
 Route::get('fotos/{foto}', [FotoController::class, 'show']);
+
+Route::get('categories', function () {
+    return response()->json([
+        'success' => true,
+        'results' => Category::all()
+    ]);
+});

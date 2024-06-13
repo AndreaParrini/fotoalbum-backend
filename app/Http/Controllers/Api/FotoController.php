@@ -15,7 +15,7 @@ class FotoController extends Controller
         if ($request->has('evidenza')) {
             return response()->json([
                 'success' => true,
-                'results' => Foto::with('category')->orderByDesc('in_evidenza')->orderByDesc('id')->where('in_evidenza', 1)->limit(5)
+                'results' => Foto::with('category')->orderByDesc('in_evidenza')->orderByDesc('id')->where('in_evidenza', 1)->limit(4)->get()
             ]);
         }
         return response()->json([
