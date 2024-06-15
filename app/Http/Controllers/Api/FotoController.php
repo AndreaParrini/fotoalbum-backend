@@ -29,6 +29,10 @@ class FotoController extends Controller
             $queryBuilder = $queryBuilder->where('category_id', $request->category);
         }
 
+        if ($request->has('title')) {
+            $queryBuilder = $queryBuilder->where('title', 'LIKE', '%' . $request->title . '%');
+        }
+
         return response()->json([
             'success' => true,
             'results' => $queryBuilder->get()
