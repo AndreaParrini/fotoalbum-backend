@@ -35,7 +35,7 @@ class FotoController extends Controller
 
         return response()->json([
             'success' => true,
-            'results' => $queryBuilder->get()
+            'results' => $queryBuilder->paginate(8)
         ]);
     }
 
