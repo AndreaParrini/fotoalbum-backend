@@ -3,8 +3,10 @@
 
 @section('content')
     <div class="bg-warning py-5">
-        <div class="container">
+        <div class="container d-flex justify-content-between">
             <h3>All foto</h3>
+            <a class="btn btn-dark btn-lg rounded-3 " href="{{ route('admin.fotos.create') }}" role="button"> <i
+                    class="fa fa-plus" aria-hidden="true"></i> ADD </a>
         </div>
     </div>
     <div class="container-fluid p-5">
@@ -121,7 +123,5 @@
             {{ $fotos->links('pagination::bootstrap-5') }}
         </div>
 
-        <a class="btn btn-primary btn-lg rounded-pill position-fixed" style="right: 5rem; bottom: 5rem"
-            href="{{ route('admin.fotos.create') }}" role="button"> <i class="fa fa-plus" aria-hidden="true"></i> ADD </a>
     </div>
 @endsection
