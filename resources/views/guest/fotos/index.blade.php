@@ -15,10 +15,11 @@
                     <a class="text-decoration-none" href="{{ route('fotos.show', $foto) }}">
                         <div class="card h-100">
                             @if (Str::startsWith($foto->image_path, 'https://'))
-                                <img class="card-img-top" src="{{ $foto->image_path }}" alt="Cover Image">
-                            @else
-                                <img class="card-img-top" src="{{ asset('storage/' . $foto->image_path) }}"
+                                <img class="card-img-top" style="height: 300px" src="{{ $foto->image_path }}"
                                     alt="Cover Image">
+                            @else
+                                <img class="card-img-top" style="height: 300px"
+                                    src="{{ asset('storage/' . $foto->image_path) }}" alt="Cover Image">
                             @endif
                             <div class="card-body">
                                 <h4 class="card-title">{{ $foto->title }}</h4>

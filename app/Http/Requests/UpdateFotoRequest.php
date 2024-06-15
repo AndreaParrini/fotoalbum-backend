@@ -25,8 +25,8 @@ class UpdateFotoRequest extends FormRequest
         return [
             //
             'title' => ['required', Rule::unique('fotos')->ignore($this->foto), 'max:50'],
-            'description' => 'nullable|max:500',
-            'image_path' => 'image|mimes:png,jpg,jpeg,bmp|dimensions:width>=400,height>=400|max:500',
+            'description' => 'nullable|max:255',
+            'image_path' => 'image|mimes:png,jpg,jpeg,bmp|dimensions:width>=400,height>=400|max:500 ',
             'category_id' => 'exists:categories,id'
         ];
     }
@@ -37,7 +37,7 @@ class UpdateFotoRequest extends FormRequest
             'title.required' => 'The :attribute is required',
             'title.min' => 'The :attribute is too short, must be have 5 characters.',
             'title.max' => 'The :attribute is too long, must be have less of 50 characters.',
-            'description.max' => 'The :attribute is too long, must be have less of 500 characters.',
+            'description.max' => 'The :attribute is too long, must be have less of 255 characters.',
             'image_path.image' => 'The :attribute must be an image, extensions accepted are png,jpg,jpeg,bmp',
             'image_path.dimensions' => 'The :attribute has invalid image dimensions. The image must have minimum height 400 and width 400',
             'category_id.exists' => 'The selected category is invalid. Choose one of the value in the select.'
