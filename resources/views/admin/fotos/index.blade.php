@@ -7,7 +7,7 @@
             <h3>All foto</h3>
         </div>
     </div>
-    <div class="container py-5">
+    <div class="container-fluid p-5">
         @include('partials.message')
         @include('partials.error')
 
@@ -21,6 +21,7 @@
                         <th scope="col">Image Path</th>
                         <th scope="col">Slug</th>
                         <th scope="col" class="text-nowrap">In Evidenza</th>
+                        <th scope="col" class="text-nowrap">Pubblicato</th>
                         <th scope="col">Actions</th>
                     </tr>
                 </thead>
@@ -41,9 +42,13 @@
                             <td>
                                 {{ $foto->slug }}
                             </td>
-                            <td>
+                            <td class="text-center">
                                 <i class="fa fa-star fa-2xl {{ $foto->in_evidenza ? 'text-warning' : 'text-dark' }}"
                                     aria-hidden="true" title="In Evidenza"></i>
+                            </td>
+                            <td class="text-center">
+                                <i class="fa-solid {{ $foto->published ? 'fa-square-check' : 'fa-square-xmark' }} fa-2xl"
+                                    style="{{ $foto->published ? 'color: #19c224;' : 'color:red;' }}"></i>
                             </td>
                             <td class="text-nowrap">
                                 <a class="btn btn-sm btn-primary" href="{{ route('admin.fotos.show', $foto) }}"><i

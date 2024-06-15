@@ -35,8 +35,8 @@
 
                 </div>
             @empty
-                <div>
-                    No fotos here
+                <div class="text-uppercase fw-bold p-3">
+                    No Image published
                 </div>
             @endforelse
         </div>
