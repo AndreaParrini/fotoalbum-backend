@@ -33,7 +33,7 @@ Route::middleware(['auth', 'verified'])
     ->group(function () {
 
         //Foto route here
-        Route::resource('/fotos', FotoContoller::class);
+        Route::resource('/fotos', FotoContoller::class)->parameters(['fotos' => 'foto:slug']);
         //Category route here
         Route::resource('/categories', CategoryController::class);
     });
