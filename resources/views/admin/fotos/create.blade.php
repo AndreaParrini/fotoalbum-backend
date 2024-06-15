@@ -65,9 +65,20 @@
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
 
-            <button type="submit" class="btn btn-primary">
-                Create
-            </button>
+            <div class="d-flex justify-content-between mt-3">
+
+                <div class="form-check mb-3">
+                    <input type="checkbox" class="btn-check" id="published" name="published" autocomplete="off"
+                        {{ old('published') ? 'checked' : '' }}>
+                    <label class="btn btn-outline-success" for="published">Pubblica</label><br>
+                </div>
+
+                <div class="pe-3">
+                    <button type="submit" class="btn btn-primary">
+                        Create
+                    </button>
+                </div>
+            </div>
 
         </form>
 

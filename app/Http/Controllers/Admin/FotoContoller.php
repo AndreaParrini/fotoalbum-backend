@@ -45,6 +45,10 @@ class FotoContoller extends Controller
             $val_data['in_evidenza'] = 1;
         }
 
+        if ($request->has('published')) {
+            $val_data['published'] = 1;
+        }
+
         if ($request->has('image_path')) {
             $image_path = Storage::put('uploads', $request->image_path);
             //dd($image_path);
@@ -91,6 +95,12 @@ class FotoContoller extends Controller
             $val_data['in_evidenza'] = 1;
         } else {
             $val_data['in_evidenza'] = 0;
+        }
+
+        if ($request->has('published')) {
+            $val_data['published'] = 1;
+        } else {
+            $val_data['published'] = 0;
         }
 
         if ($request->has('image_path')) {

@@ -10,7 +10,7 @@ class Foto extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'description', 'slug', 'image_path', 'in_evidenza', 'category_id'];
+    protected $fillable = ['title', 'description', 'slug', 'image_path', 'in_evidenza', 'category_id', 'published'];
 
     /**
      * Get the category that owns the Foto
