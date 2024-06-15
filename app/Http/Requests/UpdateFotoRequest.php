@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateFotoRequest extends FormRequest
 {
@@ -23,9 +24,9 @@ class UpdateFotoRequest extends FormRequest
     {
         return [
             //
-            'title' => 'required|max:50',
+            'title' => ['required', Rule::unique('fotos')->ignore($this->foto), 'max:50'],
             'description' => 'nullable|max:500',
-            'image_path' => 'image|mimes:png,jpg,jpeg,bmp|dimensions:width=400,height=400|max:500',
+            'image_path' => 'image|mimes:png,jpg,jpeg,bmp|dimensions:width>=400,height>=400|max:500',
             'category_id' => 'exists:categories,id'
         ];
     }
