@@ -15,11 +15,11 @@ class FotoController extends Controller
         if ($request->has('evidenza')) {
             return response()->json([
                 'success' => true,
-                'results' => Foto::with('category')->orderByDesc('in_evidenza')->orderByDesc('id')->where('in_evidenza', 1)->limit(4)->get()
+                'results' => Foto::with('category')->where('published', 1)->orderByDesc('in_evidenza')->orderByDesc('id')->where('in_evidenza', 1)->limit(4)->get()
             ]);
         }
 
-        $queryBuilder = Foto::with('category')->orderByDesc('in_evidenza')->orderByDesc('id');
+        $queryBuilder = Foto::with('category')->where('published', 1)->orderByDesc('in_evidenza')->orderByDesc('id');
 
         if ($request->has('in_evidenza')) {
             $queryBuilder = $queryBuilder->where('in_evidenza', 1);
