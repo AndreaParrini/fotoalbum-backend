@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\FotoController;
+use App\Http\Controllers\Api\LeadController;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,9 +27,6 @@ Route::get('fotos', [FotoController::class, 'index']);
 
 Route::get('fotos/{foto}', [FotoController::class, 'show']);
 
-Route::get('categories', function () {
-    return response()->json([
-        'success' => true,
-        'results' => Category::all()
-    ]);
-});
+Route::get('categories', [CategoryController::class, 'index']);
+
+Route::post('/contacts', [LeadController::class, 'store']);
