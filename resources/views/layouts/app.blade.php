@@ -64,6 +64,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('fotos.index') }}">{{ __('Fotos') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('contacts') }}">{{ __('Contact Us') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

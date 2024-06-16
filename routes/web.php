@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\FotoContoller;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Guest\FotoController as GuestFotoController;
+use App\Http\Controllers\LeadController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,10 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::resource('/fotos', GuestFotoController::class)->only(['index', 'show']);
+
+Route::get('/contacts', [LeadController::class, 'create'])->name('contacts');
+Route::post('/contacts', [LeadController::class, 'store'])->name('contacts.store');
+
 
 Route::middleware(['auth', 'verified'])
     ->name('admin.')
