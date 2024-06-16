@@ -15,7 +15,9 @@ class LeadController extends Controller
     //
     public function store(Request $request)
     {
-
+        /* return response()->json([
+            'success' => $request->all()
+        ]); */
 
         $validator = Validator::make($request->all(), [
             'name' => 'required',
