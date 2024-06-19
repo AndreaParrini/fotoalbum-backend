@@ -6,6 +6,7 @@ use App\Http\Controllers\Guest\FotoController as GuestFotoController;
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Foto;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,14 +20,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $fotos = Foto::where('published', 1)->orderByDesc('in_evidenza')->orderByDesc('id')->where('in_evidenza', 1)->limit(4)->get();
+    return view('welcome', compact('fotos'));
 });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::resource('/fotos', GuestFotoController::class)->only(['index', 'show']);
+Route::resource('/fotos', GuestFotoController::class)->only(['index', 'show'])->parameters(['fotos' => 'foto:slug']);
 
 Route::get('/contacts', [LeadController::class, 'create'])->name('contacts');
 Route::post('/contacts', [LeadController::class, 'store'])->name('contacts.store');
