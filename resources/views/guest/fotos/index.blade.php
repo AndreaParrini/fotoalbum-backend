@@ -7,7 +7,7 @@
             <h3>All foto</h3>
         </div>
     </div>
-    <div class="container py-5">
+    <div class="container-fluid p-5">
 
         <div class="row row-cols-lg-4 row-cols-md-3 row-cols-xs-1">
             @forelse ($fotos as $foto)
@@ -25,8 +25,8 @@
                                 <h4 class="card-title">{{ $foto->title }}</h4>
                                 <p class="card-text">{{ $foto->description }}</p>
                             </div>
-                            <div class="position-absolute top-0 end-0 p-2 bg-dark bg-opacity-50">
-                                <i class="fa fa-star fa-2xl {{ $foto->in_evidenza ? 'text-warning' : 'text-light' }}"
+                            <div class="position-absolute top-0 end-0 p-2 bg-light bg-opacity-50">
+                                <i class="fa fa-star fa-2xl {{ $foto->in_evidenza ? 'text-warning' : 'text-dark' }}"
                                     aria-hidden="true" title="In Evidenza"></i>
                             </div>
 

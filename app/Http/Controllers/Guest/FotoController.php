@@ -14,7 +14,7 @@ class FotoController extends Controller
     public function index()
     {
         //
-        return view('guest.fotos.index', ['fotos' => Foto::where('published', 1)->orderByDesc('in_evidenza')->orderByDesc('id')->paginate(10)]);
+        return view('guest.fotos.index', ['fotos' => Foto::where('published', 1)->orderByDesc('in_evidenza')->orderByDesc('id')->paginate(8)]);
     }
 
     /**
